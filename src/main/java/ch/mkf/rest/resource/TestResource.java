@@ -1,7 +1,5 @@
 package ch.mkf.rest.resource;
 
-import java.util.ArrayList;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -9,21 +7,33 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import com.google.common.collect.ImmutableList;
+import org.jboss.seam.annotations.In;
+import org.jboss.seam.annotations.Name;
 
 import ch.mkf.model.PoorChild;
 import ch.mkf.model.RichChild;
 import ch.mkf.model.Root;
 import ch.mkf.model.SimpleClass;
+import ch.mkf.service.TestService;
+import ch.mkf.service.TestService2;
 
+import com.google.common.collect.ImmutableList;
+
+@Name("testResource")
 @Path("/test")
 public class TestResource {
+	
+	@In(create = true)
+	private TestService2 testService2;
+	
+	@In("#{testService}")
+	private TestService testService;
 	
 	@GET
 	@Path("/simpleClass")
 	@Produces({MediaType.APPLICATION_JSON})
 	public SimpleClass simpleClass() {
-		return new SimpleClass();
+		return testService.getSimpleClass();
 	}
 	
 	@GET

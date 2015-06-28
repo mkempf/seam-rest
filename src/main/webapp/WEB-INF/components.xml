@@ -17,7 +17,7 @@
                                 http://jboss.org/schema/seam/spring
                                 http://jboss.org/schema/seam/spring-2.3.xsd">
 
-    <spring:context-loader config-locations="/WEB-INF/applicationContext.xml"/>
+    <spring:context-loader config-locations="classpath:applicationContext.xml"/>
 
 	<core:init transaction-management-enabled="false"/>
 	<transaction:no-transaction />
@@ -32,7 +32,7 @@
 	       <value>ch.mkf.rest.jaxrs.JacksonConfig</value>
 		</resteasy:provider-class-names>
 
-	   <resteasy:resource-class-names>
+ 	   <resteasy:resource-class-names>
 	       <value>ch.mkf.rest.resource.TestResource</value>
 	   </resteasy:resource-class-names>
 	
