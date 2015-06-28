@@ -24,17 +24,13 @@
 	
 	<resteasy:application
 		scan-providers="true"
-		scan-resources="false"
+		scan-resources="true"
 		use-builtin-providers="true">
 
 		<resteasy:provider-class-names>
+			<!-- manually add this provider, as it is not found by the scan. Reason: ??? -->
 	       <value>com.fasterxml.jackson.jaxrs.json.JacksonJsonProvider</value>
-	       <value>ch.mkf.rest.jaxrs.JacksonConfig</value>
 		</resteasy:provider-class-names>
-
- 	   <resteasy:resource-class-names>
-	       <value>ch.mkf.rest.resource.TestResource</value>
-	   </resteasy:resource-class-names>
 	
 	</resteasy:application>
 
