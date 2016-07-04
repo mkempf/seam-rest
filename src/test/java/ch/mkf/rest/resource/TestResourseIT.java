@@ -21,6 +21,7 @@ public class TestResourseIT {
 //        return ShrinkWrap.create(ZipImporter.class, "seam-rest.war")
 //        		.importFrom(new File("target/seam-rest.war"))
 //        		.as(WebArchive.class);
+    	//https://developer.jboss.org/thread/233130?start=0&tstart=0
     	return ShrinkWrap.create(MavenImporter.class).loadPomFromFile("pom.xml").importBuildOutput().as(WebArchive.class);  
     }
     
